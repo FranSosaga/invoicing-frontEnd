@@ -1,63 +1,67 @@
 class UserDTO {
 
     // Constructor con atributos y valores predeterminados
-    constructor(nombre, apellido, tipoDocumento, documento, pais, localidad, direccion, codigoPostal, email, telefono) {
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.tipoDocumento = tipoDocumento;
-        this.documento = documento;
-        this.pais = pais;
-        this.localidad = localidad;
-        this.direccion = direccion;
-        this.codigoPostal = codigoPostal;
+    constructor(name, surname, typeDoc, document, country, location,
+        address, postalCode, email, phone) {
+        this.name = name;
+        this.surname = surname;
+        this.typeDoc = typeDoc;
+        this.document = document;
+        this.country = country;
+        this.location = location;
+        this.address = address;
+        this.postalCode = postalCode;
         this.email = email;
-        this.telefono = telefono;
+        this.phone = phone;
     }
+
+    
 
 
     // Método para obtener el usuario
-    weriteUser() {
+    mostrarDatos() {
 
         var formulario = document.getElementById('clienteForm');
 
         const user = new UserDTO(
-            formulario.elements['nombre'].value,
-            formulario.elements['apellido'].value,
-            formulario.elements['tipoDocumento'].value,
-            formulario.elements['documento'].value,
-            formulario.elements['pais'].value,
-            formulario.elements['localidad'].value,
-            formulario.elements['direccion'].value,
-            formulario.elements['codigoPostal'].value,
+            formulario.elements['name'].value,
+            formulario.elements['surname'].value,
+            formulario.elements['typeDoc'].value,
+            formulario.elements['document'].value,
+            formulario.elements['country'].value,
+            formulario.elements['location'].value,
+            formulario.elements['address'].value,
+            formulario.elements['codePostal'].value,
             formulario.elements['email'].value,
-            formulario.elements['telefono'].value
+            formulario.elements['phone'].value
         );
+        saveUser(user);
         console.log(user);
     }
 }
 
 
 async function saveUser(user) {
-    const response = await fetch("url", {
-       method: "POST",
-       mode: "cors",
-       cache: "no-cache",
-       credentials: "same-origin",
-       headers: {
-           "Content-Type": "application/json"
-       },
-       redirect: "follow",
-       referrerPolicy: "no-referrer",
-       body: JSON.stringify(user),
-    }); 
-    return response;   
-
+    const response = await fetch("http://localhost:8080/users/saveUser", {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify(user),
+    });
+    return response;
 }
+
 
 async function getUserRUT(rut) {
     const response = await fetch("url", {
        method: "POST",
-       mode: "cors",
+       mode: "no-cors",
        cache: "no-cache",
        credentials: "same-origin",
        headers: {
@@ -74,7 +78,7 @@ async function getUserRUT(rut) {
 async function getUserCI(ci) {
     const response = await fetch("url", {
        method: "POST",
-       mode: "cors",
+       mode: "no-cors",
        cache: "no-cache",
        credentials: "same-origin",
        headers: {
