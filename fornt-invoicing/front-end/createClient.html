@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Crear Factura Electrónica</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #007bff;
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+      background-color: #fff;
+    }
+
+    .container {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="p-3 navbar-brand font-weight-bold fw-bold text-white"
+      href="http://127.0.0.1:5500/front-end/inicio.html">Invoicing SA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link fw-bold text-white" href="http://127.0.0.1:5500/front-end/inicio.html">Inicio</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">Registrar cliente</h1>
+
+    <form id="clienteForm">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nombre" required>
+        <label for="nombre">Nombre</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="apellido" required>
+        <label for="apellido">Apellido</label>
+      </div>
+
+      <div class="mb-3">
+        <div class="input-group">
+          <label class="input-group-text" for="tipoDocumento">Opciones</label>
+          <select class="form-select" id="tipoDocumento" required>
+            <option value="" disabled selected>Tipo de documento</option>
+            <option value="Cedula de identidad">Cedula de identidad</option>
+            <option value="Rut">Rut</option>
+            <option value="Pasaporte">Pasaporte</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="tel" class="form-control" id="documento" pattern="[0-9]+" maxlength="8" required>
+        <label for="documento">Documento</label>
+      </div>
+
+
+      <div class="mb-3">
+        <div class="input-group">
+          <label class="input-group-text" for="pais">Opciones</label>
+          <select class="form-select" id="pais" required>
+            <option value="" disabled selected>Selecciona un país</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Argentina">Argentina</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="localdidad" required>
+        <label for="localdidad">Localidad</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="direccion" required>
+        <label for="direccion">Dirección</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="codigoPostal" required>
+        <label for="codigoPostal">Codigo postal</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="tel" class="form-control" id="telefono" pattern="[0-9]+" maxlength="9" required>
+        <label for="telefono">Telefono</label>
+      </div>
+
+
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" required>
+        <label for="email">Email</label>
+      </div>
+
+      <!-- Agrega los demás campos del formulario según sea necesario -->
+
+      <button type="button" class="btn btn-primary" onclick="mostrarDatos()">Registrar</button>
+
+    </form>
+  </div>
+
+  <!-- Bootstrap JS y Popper.js (Requeridos para el funcionamiento de Bootstrap) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+  <script src="../js/UserDTO.js"></script>
+
+  <script>
+    function mostrarDatos() {
+      try {
+        var userDTO = new UserDTO(
+          document.getElementById('nombre').value,
+          document.getElementById('apellido').value, 
+          document.getElementById('tipoDocumento').value,
+          document.getElementById('documento').value,
+          document.getElementById('pais').value,
+          document.getElementById('localdidad').value,
+          document.getElementById('direccion').value,
+          document.getElementById('codigoPostal').value,
+          document.getElementById('email').value,
+          document.getElementById('telefono').value
+        );
+
+
+        console.log('Datos guardados en UserDTO:', userDTO);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

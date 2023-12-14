@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Invoicing.com</title>
+  </head>
+  <body>
+      <!-- Barra de navegación -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="p-3 navbar-brand font-weight-bold fw-bold text-white" href="http://127.0.0.1:5500/front-end/inicio.html">Invoicing SA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link fw-bold text-white" href="http://127.0.0.1:5500/front-end/inicio.html">Inicio <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold text-white" href="#">Agregar cliente nuevo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold text-white" href="#">Modificar cliente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold text-white" href="#">Filtrar</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="dropdown">
+          <button class="bg-white text-dark btn btn-secondary dropdown-toggle justify-content-end" type="button" id="navbarNav" data-bs-toggle="dropdown" aria-expanded="false">
+           Perfil
+          </button>
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="http://127.0.0.1:5500/front-end/profile.html">Datos</a></li>
+            <li><a class="dropdown-item" href="#">Facturas</a></li>
+            <li><a class="dropdown-item" href="#">Clientes</a></li>
+          </ul>
+        </div>
+        <button class="bg-white text-dark btn btn-secondary justify-content-end m-2" type="button" id="navbarNav">
+          Notificaciones
+        </button>
+      </div>
+      
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
