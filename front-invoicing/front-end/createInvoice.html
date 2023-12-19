@@ -10,7 +10,6 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Crear Factura Electrónica</title>
     <style>
       body {
@@ -60,70 +59,140 @@
 
     <div class="container mt-4">
       <h1 class="text-center mb-4">Crear Factura Electrónica</h1>
+      <form id="createInvoice">
+        <div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" />
+            <label for="name">Nombre</label>
+          </div>
 
-      <form id="facturaForm">
-        <!-- Con el rut busco el user para la factura-->
-        <div class="row">
-          <div class="col-10">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" required/>
-              <label for="rut">Rut</label>
-            </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="surname" />
+            <label for="surname">Apellido</label>
           </div>
-          <div class="col-2">
-            <button type="submit" class="btn btn-primary">
-              Buscar usuario
-            </button>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-6">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="details" required />
-              <label for="details">Detalle</label>
-            </div>
-          </div>
-          <div class="col-2">
+          <div class="mb-3">
             <div class="input-group">
-              <select class="form-select" aria-label="cash" required>
-                <option selected="" disabled selected>Seleccie moneda</option>
-                <option value="$">$</option>
-                <option value="U$S">U$S</option>
-                <option value="EUR">EUR</option>
+              <label class="input-group-text" for="tipoDocumento"
+                >Documento</label
+              >
+              <select class="form-select" id="tipoDocumento" required>
+                <option value="" disabled selected>Tipo de documento</option>
+                <option value="Cedula de identidad">Cedula de identidad</option>
+                <option value="Rut">Rut</option>
+                <option value="Pasaporte">Pasaporte</option>
               </select>
             </div>
           </div>
-          <div class="col-2">
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="Importe" required />
-              <label for="importe">Importe</label>
-            </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="document"
+              maxlength="12"
+            />
+            <label for="document">Documento</label>
           </div>
-          <div class="col-2">
+
+          <div class="mb-3">
             <div class="input-group">
-              <select class="form-select" id="" required>
-                <option value="" disabled selected>Importe gravado</option>
-                <option value="0">No</option>
-                <option value="10">10%</option>
-                <option value="22">22%</option>
+              <label class="input-group-text" for="pais">Opciones</label>
+              <select class="form-select" id="pais" required>
+                <option value="" disabled selected>Selecciona un país</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Argentina">Argentina</option>
               </select>
             </div>
           </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="location" />
+            <label for="location">Localidad</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="address" />
+            <label for="address">Dirección</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="postalcode" />
+            <label for="postalcode">Codigo postal</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="phone" />
+            <label for="phone">Telefono</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            />
+            <label for="email">Email</label>
+          </div>
+          <button type="button" class="btn btn-primary mb-3" id="buttonRegisterUser" >Registrar usuario</button>
         </div>
 
         <!-- Datos restantes de la factura (detalles, etc..) -->
-        <div id="detallesContainer"></div>
+        <div id="detallesContainer">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="details" />
+                <label for="details">Detalle</label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group">
+                <select class="form-select" aria-label="cash">
+                  <option selected="" disabled selected>Seleccie moneda</option>
+                  <option value="$">$</option>
+                  <option value="U$S">U$S</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="Importe"
+                  required
+                />
+                <label for="importe">Importe</label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group">
+                <select class="form-select" id="cash" required>
+                  <option value="" disabled selected>Importe gravado</option>
+                  <option value="0">No</option>
+                  <option value="10">10%</option>
+                  <option value="22">22%</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Agrega los demás campos del formulario según sea necesario -->
+        <button type="button" class="btn btn-primary" onclick="addDetail()">
+          Agregar Detalle
+        </button>
         <button
           type="button"
           class="btn btn-primary"
-          onclick="agregarDetalle()"
+          onclick="cargarDatosDesdeURL()"
         >
-          Agregar Detalle
+          Generar Factura
         </button>
-        <button type="submit" class="btn btn-primary">Generar Factura</button>
       </form>
     </div>
 
@@ -133,9 +202,10 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
-      function agregarDetalle() {
+      function addDetail() {
         // Crear un nuevo conjunto de campos de detalle
         var nuevoDetalle = `
         <div class="row">

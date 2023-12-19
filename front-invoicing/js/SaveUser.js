@@ -47,6 +47,7 @@ function registerUser() {
       document.getElementById("telefono").value
     );
     saveUser(userDTO);
+    resetForm();
 
     console.log("Datos guardados en UserDTO:", userDTO);
   } catch (error) {
@@ -68,4 +69,9 @@ async function saveUser(user) {
     body: JSON.stringify(user),
   });
   return response;
+}
+
+function resetForm() {
+  var formulario = document.getElementById('clienteForm');
+  formulario.reset();
 }
