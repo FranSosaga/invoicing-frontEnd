@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Load client</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .navbar {
+        background-color: #007bff;
+      }
+      .navbar-dark .navbar-toggler-icon {
+        background-color: #fff;
+      }
+      .container {
+        margin-top: 30px;
+      }
+      .table-row:hover {
+        cursor: pointer;
+        background-color: #e0e0e0;
+      }
+      .selected-row {
+        background-color: #a0a0a0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <a
+        class="p-3 navbar-brand font-weight-bold fw-bold text-white"
+        href="http://127.0.0.1:5500/front-invoicing/front-end/inicio.html"
+        >Invoicing SA</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link fw-bold text-white"
+              href="http://127.0.0.1:5500/front-invoicing/front-end/inicio.html"
+              >Inicio</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <table class="table table-hover" id="userTable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Tipo documento</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Pais</th>
+          <th scope="col">Localidad</th>
+          <th scope="col">Codigo postal</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas de la tabla se agregarán dinámicamente aquí -->
+      </tbody>
+    </table>
+
+    <!-- ... (Tu encabezado HTML actual) ... -->
+
+<script>
+    // Lista de usuarios (puedes cargarla desde una API, base de datos, etc.)
+    async function getLoadUsers() {
+      try {
+        const response = await fetch("http://localhost:8080/users/listUsers", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error(`Error HTTP! Estado: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error("Error al obtener datos de usuarios:", error);
+        throw error;
+      }
+    }
+  
+    async function loadUsers() {
+      try {
+        // Obtener la lista de usuarios
+        var userList = await getLoadUsers();
+  
+        var tableBody = $("#userTable tbody");
+  
+        // Limpiar la tabla antes de cargar los datos
+        tableBody.empty();
+  
+        // Iterar sobre la lista de usuarios y agregar filas a la tabla
+        userList.forEach(function (user) {
+          var row = '<tr class="table-row">';
+          row += '<th scope="row">' + user.id + "</th>";
+          row += "<td>" + user.name + "</td>";
+          row += "<td>" + user.surname + "</td>";
+          row += "<td>" + user.typeDoc + "</td>";
+          row += "<td>" + user.document + "</td>";
+          row += "<td>" + user.country + "</td>";
+          row += "<td>" + user.location + "</td>";
+          row += "<td>" + user.postalcode + "</td>";
+          row += "<td>" + user.address + "</td>";
+          row += "<td>" + user.phone + "</td>";
+          row += "<td>" + user.email + "</td>";
+          row += "</tr>";
+  
+          // Agregar la fila a la tabla
+          tableBody.append(row);
+        });
+  
+        // Agrega el evento de clic a las filas después de cargar los datos
+        $(".table-row").click(function () {
+          // Remueve la clase 'selected-row' de todas las filas
+          $(".table-row").removeClass("selected-row");
+  
+          // Agrega la clase 'selected-row' a la fila seleccionada
+          $(this).addClass("selected-row");
+  
+          // Obtén los datos de la fila seleccionada
+          var rowData = {
+            id: $(this).find("th").text(),
+            name: $(this).find("td:eq(0)").text(),
+            surname: $(this).find("td:eq(1)").text(),
+            typeDoc: $(this).find("td:eq(2)").text(),
+            document: $(this).find("td:eq(3)").text(),
+            country: $(this).find("td:eq(4)").text(),
+            location: $(this).find("td:eq(5)").text(),
+            postalcode: $(this).find("td:eq(6)").text(),
+            address: $(this).find("td:eq(7)").text(),
+            phone: $(this).find("td:eq(8)").text(),
+            email: $(this).find("td:eq(9)").text(),
+          };
+  
+          // Redirige a la nueva página y pasa los datos como parámetros
+          window.location.href = "http://127.0.0.1:5500/front-invoicing/front-end/createInvoiceUser.html?" + $.param(rowData);
+        });
+      } catch (error) {
+        console.error("Error al cargar usuarios:", error);
+      }
+    }
+  
+    // Llama a la función para cargar los usuarios al cargar la página
+    loadUsers();
+  </script>  
+  </body>
+</html>

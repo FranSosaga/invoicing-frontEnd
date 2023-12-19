@@ -74,7 +74,7 @@
       </div>
 
       <div class="form-floating mb-3">
-        <input type="tel" class="form-control" id="documento" pattern="[0-9]+" maxlength="8" required>
+        <input type="text" class="form-control" id="documento" maxlength="12" required>
         <label for="documento">Documento</label>
       </div>
 
@@ -112,15 +112,15 @@
         <label for="telefono">Telefono</label>
       </div>
 
-
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="email" required>
+        <input type="email" class="form-control" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
         <label for="email">Email</label>
       </div>
+      
 
       <!-- Agrega los demás campos del formulario según sea necesario -->
 
-      <button type="button" class="btn btn-primary" onclick="mostrarDatos()">Registrar</button>
+      <button type="button" class="btn btn-primary" id="buttonRegisterUser">Registrar</button>
 
     </form>
   </div>

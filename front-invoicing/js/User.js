@@ -15,63 +15,37 @@ class User {
       this.codigoPostal = codigoPostal;
       this.email = email;
       this.telefono = telefono;
-    }
-  
-    // Método para obtener el usuario
-    getUser() {
-      const apiUrl = 'https://ejemplo.com/api/usuario';
-  
-      // Realizar la solicitud Fetch
-      return fetch(apiUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status}`);
-          }
-  
-          // Parsear la respuesta JSON
-          return response.json();
-        })
-        .then(usuario => {
-          // Asignar los valores obtenidos a los atributos
-          this.nombre = usuario.nombre;
-          this.rut = usuario.rut;
-          this.tipoDocumento = usuario.tipoDocumento;
-          this.documento = usuario.documento;
-          this.pais = usuario.pais;
-          this.localidad = usuario.localidad;
-          this.direccion = usuario.direccion;
-          this.email = usuario.email;
-          this.telefono = usuario.telefono;
-        })
-        .catch(error => {
-          console.error('Error en la solicitud:', error.message);
-        });
-    }
-  
-    // Método para obtener un usuario de prueba
-    getUserPrueba() {
-      // Llamando al constructor con valores predeterminados
-      const userPrueba = new User();
-      console.log(userPrueba);
-      return userPrueba;
-    }
+    }  
+   
   }
 
-  const userr =  new User();
-  
-  document.getElementById("nombreCompleto").innerHTML = userr.nombre + " " + userr.apellido;
-  document.getElementById("ubicacion").innerHTML = userr.pais + ", " + userr.localidad;
-  document.getElementById("rut").innerHTML = userr.rut;
-  document.getElementById("nombre").innerHTML = userr.nombre;
-  document.getElementById("tipoDocumento").innerHTML = userr.tipoDocumento;
-  document.getElementById("documento").innerHTML = userr.documento;
-  document.getElementById("apellido").innerHTML = userr.apellido;
-  document.getElementById("pais").innerHTML = userr.pais;
-  document.getElementById("localidad").innerHTML = userr.localidad;
-  document.getElementById("direccion").innerHTML = userr.direccion;
-  document.getElementById("codigoPostal").innerHTML = userr.codigoPostal;
-  document.getElementById("email").innerHTML = userr.email;
-  document.getElementById("telefono").innerHTML = userr.telefono;
+  let buton = document.getElementById("registerUser");
 
+  buton.addEventListener("click", evnto => {
+    saveUser();
+  });
+  
+  function saveUser() {
+    try {
+      var userDTO = new UserDTO(
+        document.getElementById('nombre').value,
+        document.getElementById('apellido').value, 
+        document.getElementById('tipoDocumento').value,
+        document.getElementById('documento').value,
+        document.getElementById('pais').value,
+        document.getElementById('localdidad').value,
+        document.getElementById('direccion').value,
+        document.getElementById('codigoPostal').value,
+        document.getElementById('email').value,
+        document.getElementById('telefono').value
+      );
+      saveUser(userDTO);
+
+
+      console.log('Datos guardados en UserDTO:', userDTO);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
 
   
