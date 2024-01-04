@@ -126,7 +126,8 @@
               <div class="input-group">
                 <select
                   class="form-select"
-                  aria-label="cash">
+                  aria-label="cash"
+                  id="typecash">
                   <option selected="" disabled selected>Seleccie moneda </option>
                   <option value="$">$</option>
                   <option value="U$S">U$S</option>
@@ -137,7 +138,7 @@
             </div>
             <div class="col-2">
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="Importe" required />
+                <input type="number" class="form-control" id="importe" required />
                 <label for="importe">Importe</label>
               </div>
             </div>
@@ -209,6 +210,8 @@
     loadDataInForm();
   };
 
+  var i=1;
+
 
       function addDetail() {
         // Crear un nuevo conjunto de campos de detalle
@@ -216,15 +219,16 @@
         <div class="row">
           <div class="col-6">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="details" />
-              <label for="details">Detalle</label>
+              <input type="text" class="form-control" id="details${i}" />
+              <label for="details${i}">Detalle</label>
             </div>
           </div>
           <div class="col-2">
             <div class="input-group">
               <select
                 class="form-select"
-                aria-label="cash">
+                aria-label="cash"
+                id="typecash${i}">
                 <option selected="" disabled selected>Seleccie moneda </option>
                 <option value="$">$</option>
                 <option value="U$S">U$S</option>
@@ -235,13 +239,13 @@
           </div>
           <div class="col-2">
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="Importe" required />
-              <label for="importe">Importe</label>
+              <input type="number" class="form-control" id="importe${i}" required />
+              <label for="importe${i}">Importe</label>
             </div>
           </div>
           <div class="col-2">
             <div class="input-group">
-              <select class="form-select" id="cash" required>
+              <select class="form-select" id="cash${i}" required>
                 <option value="" disabled selected>Importe gravado</option>
                 <option value="0">No</option>
                 <option value="10">10%</option>
@@ -251,7 +255,7 @@
           </div>
         </div>
       `;
-
+        i++;
         // Agregar el nuevo conjunto de campos al contenedor
         $("#detallesContainer").append(nuevoDetalle);
       }

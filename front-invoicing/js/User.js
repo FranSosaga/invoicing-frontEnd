@@ -19,33 +19,6 @@ class User {
    
   }
 
-  let buton = document.getElementById("registerUser");
-
-  buton.addEventListener("click", evnto => {
-    saveUser();
-  });
-  
-  function saveUser() {
-    try {
-      var userDTO = new UserDTO(
-        document.getElementById('nombre').value,
-        document.getElementById('apellido').value, 
-        document.getElementById('tipoDocumento').value,
-        document.getElementById('documento').value,
-        document.getElementById('pais').value,
-        document.getElementById('localdidad').value,
-        document.getElementById('direccion').value,
-        document.getElementById('codigoPostal').value,
-        document.getElementById('email').value,
-        document.getElementById('telefono').value
-      );
-      saveUser(userDTO);
-
-
-      console.log('Datos guardados en UserDTO:', userDTO);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
+ 
 
   
