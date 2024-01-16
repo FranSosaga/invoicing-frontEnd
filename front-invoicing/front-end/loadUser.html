@@ -92,7 +92,7 @@
     // Lista de usuarios (puedes cargarla desde una API, base de datos, etc.)
     async function getLoadUsers() {
       try {
-        const response = await fetch("http://localhost:8080/users/listUsers", {
+        const response = await fetch("https://app-invoice-a935d1e604c9.herokuapp.com/users/listUsers", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

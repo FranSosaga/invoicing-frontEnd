@@ -56,7 +56,7 @@ function registerUser() {
 }
 
 async function saveUser(user) {
-  const response = await fetch("http://localhost:8080/users/saveUser", {
+  const response = await fetch("https://app-invoice-a935d1e604c9.herokuapp.com/users/saveUser", {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
