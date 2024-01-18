@@ -1,128 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
 
+    <title>Invoicing.com</title>
+  </head>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-auto navbar-light bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="">Invoicing SA</a>
 
-  <title>Invoicing.com</title>
-</head>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/profile.html">Perfil</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Datos de usuario
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Lista de clientes</a></li>
+                <li><a class="dropdown-item" href="#">Balance de la cuenta</a></li>
+                <li><a class="dropdown-item" href="#">Datos DGI</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex m-2" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+            />
+            <button class="btn btn-outline-success bg-white" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
 
-<body>
-  <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="p-3 navbar-brand font-weight-bold fw-bold text-white" href="#">Invoicing SA</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link fw-bold text-white" href="">Inicio <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fw-bold text-white" href="#">Acerca de nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fw-bold text-white" href="#">Servicios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fw-bold text-white" href="#">Contacto</a>
-        </li>
-      </ul>
+      
+
+    <!-- Contenido de la página -->
+    <div class="container mt-5">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="card">
+            <h5 class="card-header bg-primary">Crear factura</h5>
+            <div class="card-body">
+              <h5 class="card-title">Crear factura de cliente guardado</h5>
+              <p class="card-text">Elija el cliente y haga su factura.</p>
+              <a
+                href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/loadUser.html"
+                class="btn btn-primary"
+                >Crear</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="container py-3">
+          <div class="card">
+            <h5 class="card-header bg-primary">Crear factura</h5>
+            <div class="card-body">
+              <h5 class="card-title">
+                Crear factura de un cliente no registrado.
+              </h5>
+              <p class="card-text">Haga su factura.</p>
+              <a
+                href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/createInvoice.html"
+                class="btn btn-primary"
+                >Crear</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="container py-3">
+          <div class="card">
+            <h5 class="card-header bg-primary">Registrar cliente</h5>
+            <div class="card-body">
+              <h5 class="card-title">Crear cliente para facturas futuras.</h5>
+              <p class="card-text">
+                Permite registrar un cliente y poder usarlo en facturas.
+              </p>
+              <a
+                href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/createClient.html"
+                class="btn btn-primary"
+                >Registrar</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="container py-3">
+          <div class="card">
+            <h5 class="card-header bg-primary">Facturas registradas.</h5>
+            <div class="card-body">
+              <h5 class="card-title">Facturas enviadas.</h5>
+              <p class="card-text">Permite ver todas las facturas enviadas.</p>
+              <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="container py-3">
+          <div class="card py-">
+            <h5 class="card-header bg-primary">Estado de la cuenta</h5>
+            <div class="card-body">
+              <h5 class="card-title">Calculo detallado de la cuenta.</h5>
+              <p class="card-text">
+                Permite ver todos los gastos/ganancias de la cuenta.
+              </p>
+              <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-    <div class="dropdown">
-      <button class="bg-white text-dark btn btn-secondary dropdown-toggle justify-content-end" type="button"
-        id="navbarNav" data-bs-toggle="dropdown" aria-expanded="false">
-        Perfil
-      </button>
-      <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/profile.html">Datos</a></li>
-        <li><a class="dropdown-item" href="#">Facturas</a></li>
-        <li><a class="dropdown-item" href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/clients.html">Clientes</a></li>
-      </ul>
-    </div>
-    <button class="bg-white text-dark btn btn-secondary justify-content-end m-2" type="button" id="navbarNav">
-      Notificaciones
-    </button>
-    </div>
-
-  </nav>
-
-  <!-- Contenido de la página -->
-  <div class="container mt-5">
-    <div class="container-fluid">
-
-      <div class="container">
-        <div class="card">
-          <h5 class="card-header bg-primary">Crear factura</h5>
-          <div class="card-body">
-            <h5 class="card-title">Crear factura de cliente guardado</h5>
-            <p class="card-text">Elija el cliente y haga su factura.</p>
-            <a href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/loadUser.html" class="btn btn-primary">Crear</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container py-3">
-        <div class="card">
-          <h5 class="card-header bg-primary">Crear factura</h5>
-          <div class="card-body">
-            <h5 class="card-title">Crear factura de un cliente no registrado.</h5>
-            <p class="card-text">Haga su factura.</p>
-            <a href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/createInvoice.html" class="btn btn-primary">Crear</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container py-3">
-        <div class="card ">
-          <h5 class="card-header bg-primary">Registrar cliente</h5>
-          <div class="card-body">
-            <h5 class="card-title">Crear cliente para facturas futuras.</h5>
-            <p class="card-text">Permite registrar un cliente y poder usarlo en facturas.</p>
-            <a href="https://main--splendid-beijinho-036a74.netlify.app/front-invoicing/front-end/createClient.html" class="btn btn-primary">Registrar</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container py-3">
-        <div class="card">
-          <h5 class="card-header bg-primary">Facturas registradas.</h5>
-          <div class="card-body">
-            <h5 class="card-title">Facturas enviadas.</h5>
-            <p class="card-text">Permite ver todas las facturas enviadas.</p>
-            <a href="#" class="btn btn-primary">Ver</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container py-3">
-        <div class="card py-">
-          <h5 class="card-header bg-primary">Estado de la cuenta</h5>
-          <div class="card-body">
-            <h5 class="card-title">Calculo detallado de la cuenta.</h5>
-            <p class="card-text">Permite ver todos los gastos/ganancias de la cuenta.</p>
-            <a href="#" class="btn btn-primary">Ver</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
