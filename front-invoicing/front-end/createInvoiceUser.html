@@ -115,7 +115,7 @@
 
         <!-- Datos restantes de la factura (detalles, etc..) -->
         <div class="container-fluid" id="detallesContainer">
-          <div class="row">
+          <div class="row border p-2 mb-2">
             <div class="col-md-6 mb-2">
               <div class="form-floating">
                 <input type="text" class="form-control" id="details" />
@@ -153,18 +153,11 @@
         
         <!-- Agrega los demás campos del formulario según sea necesario -->
         <div class="container-fluid p-2" style="margin-bottom: 20px;">
-        <button
-          type="button"
-          class="btn btn-primary"
-          onclick="addDetail()">
-          Agregar Detalle
-        </button>
-        <button type="button" class="btn btn-primary" onclick="cargarDatosDesdeURL()">Generar Factura</button>
-        <button type="button" class="btn btn-danger" onclick="removeDetail()">Eliminar Detalle</button>
-
-      </form>
-    </div>
-    </div>
+          <button type="button" class="btn btn-primary" onclick="addDetail()">Agregar Detalle</button>
+          <button type="button" class="btn btn-primary" onclick="cargarDatosDesdeURL()">Generar Factura</button>
+          <button type="button" class="btn btn-danger" onclick="removeDetail()">Eliminar Detalle</button>
+        </div>
+        
 
     <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -243,7 +236,7 @@ function confirmRemoveDetail() {
   function addDetail() {
   // Crear un nuevo conjunto de campos de detalle
   var nuevoDetalle = `
-    <div class="row">
+    <div class="row border p-2 mb-2">
       <div class="col-md-6 mb-2">
         <div class="form-floating">
           <input type="text" class="form-control" id="details${i}" />
@@ -282,6 +275,7 @@ function confirmRemoveDetail() {
   // Agregar el nuevo conjunto de campos al contenedor
   $("#detallesContainer").append(nuevoDetalle);
 }
+
     </script>
   </body>
 </html>
