@@ -114,10 +114,10 @@
         </div>
 
         <!-- Datos restantes de la factura (detalles, etc..) -->
-        <div id="detallesContainer">
+        <div class="container-fluid" id="detallesContainer">
           <div class="row">
             <div class="col-6">
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-2">
                 <input type="text" class="form-control" id="details" />
                 <label for="details">Detalle</label>
               </div>
@@ -156,15 +156,36 @@
         </div>
 
         <!-- Agrega los demás campos del formulario según sea necesario -->
+        <div class="container-fluid p-2" style="margin-bottom: 20px;">
         <button
           type="button"
           class="btn btn-primary"
-          onclick="addDetail()"
-        >
+          onclick="addDetail()">
           Agregar Detalle
         </button>
         <button type="button" class="btn btn-primary" onclick="cargarDatosDesdeURL()">Generar Factura</button>
+        <button type="button" class="btn btn-danger" onclick="removeDetail()">Eliminar Detalle</button>
+
       </form>
+    </div>
+    </div>
+
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ¿Estás seguro de que quieres eliminar el último detalle?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" onclick="confirmRemoveDetail()">Eliminar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Bootstrap JS y Popper.js (Requeridos para el funcionamiento de Bootstrap) -->
@@ -177,6 +198,16 @@
 
 
 <script>
+
+function removeDetail() {
+  $('#confirmationModal').modal('show');
+}
+
+function confirmRemoveDetail() {
+  $("#detallesContainer .row:last").remove();
+  $('#confirmationModal').modal('hide');
+}
+
   function getValueURL() {
     var parametros = {};
     var url = window.location.href;
