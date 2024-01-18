@@ -116,33 +116,29 @@
         <!-- Datos restantes de la factura (detalles, etc..) -->
         <div class="container-fluid" id="detallesContainer">
           <div class="row">
-            <div class="col-6">
-              <div class="form-floating mb-2">
+            <div class="col-md-6 mb-2">
+              <div class="form-floating">
                 <input type="text" class="form-control" id="details" />
                 <label for="details">Detalle</label>
               </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 mb-2">
               <div class="input-group">
-                <select
-                  class="form-select"
-                  aria-label="cash"
-                  id="typecash">
-                  <option selected="" disabled selected>Seleccie moneda </option>
+                <select class="form-select" aria-label="cash" id="typecash">
+                  <option selected="" disabled selected>Seleccione moneda</option>
                   <option value="$">$</option>
                   <option value="U$S">U$S</option>
                   <option value="EUR">EUR</option>
                 </select>
               </div>
-  
             </div>
-            <div class="col-2">
-              <div class="form-floating mb-3">
+            <div class="col-md-2 mb-2">
+              <div class="form-floating">
                 <input type="number" class="form-control" id="importe" required />
                 <label for="importe">Importe</label>
               </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 mb-2">
               <div class="input-group">
                 <select class="form-select" id="cash" required>
                   <option value="" disabled selected>Importe gravado</option>
@@ -154,7 +150,7 @@
             </div>
           </div>
         </div>
-
+        
         <!-- Agrega los demás campos del formulario según sea necesario -->
         <div class="container-fluid p-2" style="margin-bottom: 20px;">
         <button
@@ -244,52 +240,48 @@ function confirmRemoveDetail() {
   var i=1;
 
 
-      function addDetail() {
-        // Crear un nuevo conjunto de campos de detalle
-        var nuevoDetalle = `
-        <div class="row">
-          <div class="col-6">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="details${i}" />
-              <label for="details${i}">Detalle</label>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="input-group">
-              <select
-                class="form-select"
-                aria-label="cash"
-                id="typecash${i}">
-                <option selected="" disabled selected>Seleccie moneda </option>
-                <option value="$">$</option>
-                <option value="U$S">U$S</option>
-                <option value="EUR">EUR</option>
-              </select>
-            </div>
-
-          </div>
-          <div class="col-2">
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="importe${i}" required />
-              <label for="importe${i}">Importe</label>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="input-group">
-              <select class="form-select" id="cash${i}" required>
-                <option value="" disabled selected>Importe gravado</option>
-                <option value="0">No</option>
-                <option value="10">10%</option>
-                <option value="22">22%</option>
-              </select>
-            </div>
-          </div>
+  function addDetail() {
+  // Crear un nuevo conjunto de campos de detalle
+  var nuevoDetalle = `
+    <div class="row">
+      <div class="col-md-6 mb-2">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="details${i}" />
+          <label for="details${i}">Detalle</label>
         </div>
-      `;
-        i++;
-        // Agregar el nuevo conjunto de campos al contenedor
-        $("#detallesContainer").append(nuevoDetalle);
-      }
+      </div>
+      <div class="col-md-2 mb-2">
+        <div class="input-group">
+          <select class="form-select" aria-label="cash" id="typecash${i}">
+            <option selected="" disabled selected>Seleccione moneda</option>
+            <option value="$">$</option>
+            <option value="U$S">U$S</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2 mb-2">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="importe${i}" required />
+          <label for="importe${i}">Importe</label>
+        </div>
+      </div>
+      <div class="col-md-2 mb-2">
+        <div class="input-group">
+          <select class="form-select" id="cash${i}" required>
+            <option value="" disabled selected>Importe gravado</option>
+            <option value="0">No</option>
+            <option value="10">10%</option>
+            <option value="22">22%</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  `;
+  i++;
+  // Agregar el nuevo conjunto de campos al contenedor
+  $("#detallesContainer").append(nuevoDetalle);
+}
     </script>
   </body>
 </html>
